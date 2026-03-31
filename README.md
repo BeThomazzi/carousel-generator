@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DeVox Carousel Generator
 
-## Getting Started
+Uma aplicação web moderna, rápida e interativa para a criação de carrosséis de alta conversão voltados para redes sociais (Instagram, LinkedIn). Desenvolvida com **Next.js**, **React** e **Tailwind CSS**.
 
-First, run the development server:
+## 🚀 Funcionalidades Principais
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Visualização em Tempo Real (Live Preview)**: Veja as atualizações instantaneamente no painel lateral enquanto edita seus slides.
+- **Estruturas de Slides Prontas**: O gerador segue uma estrutura otimizada contendo:
+  - **Capa**: Foco total em impacto visual, títulos grandes e atração de clique.
+  - **Conteúdo**: Layouts adaptativos suportando tanto formatos de parágrafo quanto de *bullet points* para listas.
+  - **Encerramento / CTA**: Slide otimizado para chamada para ação e comentários.
+- **Textos com Destaque Inteligente**: Realce partes importantes dos seus textos utilizando uma sintaxe simples baseada em markdown (ex: `O segredo do *sucesso*` renderiza a palavra "sucesso" em destaque).
+- **Motor de Renderização Fiel**: Utiliza um motor inteligente de web-scraping interno com **Puppeteer** e **Chromium** headless, garantindo o download do seu carrossel com 100% de perfeição de CSS, estilos complexos e filtros de background.
+- **Compressão e Performance**: Uploads locais de alta resolução são automaticamente redimensionados (<1500px) e comprimidos no navegador antes de irem para o estado da aplicação.
+- **State Management Seguro**: Suas edições são injetadas ativamente no roteamento e no `localStorage`, prevenindo a perda de dados ao fechar a aba.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js 15** (App Router)
+- **React 19**
+- **Tailwind CSS**
+- Componentes acessíveis baseados em **Radix UI** (+ shadcn/ui)
+- Ícones via **Lucide React**
+- Automação Headless via **Puppeteer Core** & **sparticuz/chromium**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💻 Como Rodar o Projeto
 
-## Learn More
+### Pré-requisitos
+- Node.js (versão 18+ recomendada)
+- NPM, Yarn ou pnpm installado.
 
-To learn more about Next.js, take a look at the following resources:
+### Instalação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/carousel-generator.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Acesse o diretório do projeto:
+   ```bash
+   cd carousel-generator
+   ```
 
-## Deploy on Vercel
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Abra `http://localhost:3000` no seu navegador para ver o projeto em funcionamento.
+
+## 📂 Visão Geral da Arquitetura
+
+- `src/app/page.tsx`: Interface principal contendo o painel de edição (EditorPanel), preview ao vivo (PreviewPanel) e a navegação (NavigationPanel).
+- `src/app/api/export-image/route.ts`: Rota serveless backend que manipula instâncias isoladas do navegador web para tirar capturas de tela perfeitas do slide em alta resolução (1080x1350).
+- `src/app/export-preview/[id]/page.tsx`: Página limpa preparada exclusivamente para injeção de estado virtual utilizado durante a extração de imagens pelo back-end.
+
+## 📝 Licença
+Desenvolvido por DeVox. Todos os direitos reservados.
